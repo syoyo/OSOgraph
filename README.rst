@@ -9,6 +9,7 @@ Requirements
  * OSL compiler from openshadinglanguage
    * http://code.google.com/p/openshadinglanguage/
  * Python
+ * Graphviz
 
 
 How to use
@@ -16,9 +17,9 @@ How to use
 
 ::
 
- $ oslc input.osl
- $ python osograph.py input.oso
- $ graphviz 
+ $ oslc test.osl
+ $ python osograph.py test.oso
+ $ dot -Tpng output.dot > test.png
 
 
 Limitation & TODO
