@@ -1,0 +1,7 @@
+shader
+test()
+{
+	normal Nn = normalize(N);
+	color cc = color(1, 2, 3);
+	Ci = cc * diffuse(Nn) + emission();
+}

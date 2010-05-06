@@ -1,0 +1,29 @@
+digraph G {
+node0 [label="global normal N"]
+node1 [label="global color Ci"]
+node2 [label="local normal Nn"]
+node3 [label="local color cc"]
+node4 [label="const color $const1 1"]
+node5 [label="temp color $tmp1"]
+node6 [label="temp color $tmp2"]
+node7 [label="temp color $tmp3"]
+node8 [label="normalize normal Nn N"]
+node9 [label="assign color cc $const1"]
+node10 [label="diffuse color $tmp1 Nn"]
+node11 [label="mul color $tmp2 cc $tmp1"]
+node12 [label="emission color $tmp3"]
+node13 [label="add color Ci $tmp2 $tmp3"]
+node0 -> node8
+node8 -> node2
+node4 -> node9
+node9 -> node3
+node8 -> node10
+node10 -> node5
+node9 -> node11
+node10 -> node11
+node11 -> node6
+node12 -> node7
+node11 -> node13
+node12 -> node13
+node13 -> node1
+}

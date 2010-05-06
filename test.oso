@@ -1,0 +1,25 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 0.5.0
+shader test
+global	normal	N	 %read{0,0} %write{2147483647,-1}
+global	closure color	Ci	 %read{2147483647,-1} %write{5,5} %depends{N,Nn,cc,$tmp2,$tmp1,$tmp3}
+local	normal	Nn	 %read{2,2} %write{0,0}
+local	color	cc	 %read{3,3} %write{1,1}
+const	color	$const1	1 2 3		 %read{1,1} %write{2147483647,-1}
+temp	closure color	$tmp1	 %read{3,3} %write{2,2}
+temp	closure color	$tmp2	 %read{5,5} %write{3,3}
+temp	closure color	$tmp3	 %read{5,5} %write{4,4}
+code ___main___
+# test.osl:4
+# 	normal Nn = normalize(N);
+	normalize	Nn N 	%filename{"test.osl"} %line{4} %argrw{"wr"}
+# test.osl:5
+# 	color cc = color(1, 2, 3);
+	assign		cc $const1 	%line{5} %argrw{"wr"}
+# test.osl:6
+# 	Ci = cc * diffuse(Nn) + emission();
+	diffuse		$tmp1 Nn 	%line{6} %argrw{"wr"}
+	mul		$tmp2 cc $tmp1 	%argrw{"wrr"}
+	emission	$tmp3 	%argrw{"w"}
+	add		Ci $tmp2 $tmp3 	%argrw{"wrr"}
+	end
