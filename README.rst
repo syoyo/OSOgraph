@@ -30,3 +30,9 @@ Limitation & TODO
 A lot.
 
 I've made this simple script just for fun and understanding oso format, thus please don't expect too much on this project ;-)
+
+
+License
+-------
+
+BSD 2
