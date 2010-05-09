@@ -1,6 +1,8 @@
 OSOgraph
 ========
 
+.. image:: test.png 
+
 OSOgraph visualizes OSO(compiled intermediate instructions of OpenShadingLanguage by oslc) using graphviz.
 
 Requirements
